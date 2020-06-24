@@ -25,7 +25,9 @@ in (select sc1.studentId from student_course sc1 , student_course sc2
 where sc1.courseId = 1 and sc2.courseId = 2 and sc1.studentId = sc2.studentId);
 
 # 7.Retrieve 1 student score with less than 60 scores in descending order
-select  * from student_course where score < 60 order by score desc;
+select * 
+from student s , student_course sc 
+where s.id = sc.studentId and sc.courseId = 1 and sc.score < 60 order by sc.score desc;
 
 # 8.Query the average grade of each course. The results are ranked in descending order of average grade. When the average grades are the same, they are sorted in ascending order by course number.
 select courseId `科目` , avg(score) `平均分`
